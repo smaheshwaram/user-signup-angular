@@ -11,7 +11,6 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class LoginComponent implements OnInit, AfterContentChecked {
 
-  // loginForm: FormGroup;
   loginForm = new FormGroup({
     username: new FormControl(''),
     password: new FormControl(''),
@@ -25,13 +24,14 @@ export class LoginComponent implements OnInit, AfterContentChecked {
   ngOnInit() {
   }
 
-  loginUser(): void {
+  signUpUser(): void {
     this.userRequest = new UserServiceValues();
     this.userRequest.userName = this.loginForm.get('username').value;
     this.userRequest.password = this.loginForm.get('password').value;
     this.userRequest.userAddress = '567 fruity';
     this.dataService.postUser(this.userRequest).subscribe(newUserModel => {
       this.userModel = newUserModel;
+      alert('Sign up is successful ' + this.userRequest.userName);
     }, error => {
       console.log(error.error.message);
     });
@@ -39,21 +39,5 @@ export class LoginComponent implements OnInit, AfterContentChecked {
 
   ngAfterContentChecked(): void {
   }
-
-  // loginUser($event) {
-  // event.preventDefault();
-    // const target = event.target;
-    // const username = target.querySelector('#username').value;
-    // // @ts-ignore
-    // const password = target.querySelector('#password').value;
-    // this.userService.postUser(username, password);
-    //
-    // console.log(username, password);
-
-    // this.userService.postUser(username, password);
-    // this.userService.postUser(this.userRequest).subscribe(newUserModel => {
-    // this.userModel = newUserModel;
-    // });
-  // }
 }
 

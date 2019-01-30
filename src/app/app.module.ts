@@ -33,7 +33,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     HttpClientModule,
     RouterModule.forRoot([
       {
-        path: 'login',
+        path: 'signup',
         component: LoginComponent
       },
       {

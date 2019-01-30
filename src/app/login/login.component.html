@@ -1,6 +1,8 @@
-<form role="form" [formGroup]="loginForm" (ngSubmit)="loginUser()">
+<form role="form" [formGroup]="loginForm" (ngSubmit)="signUpUser()">
   <input type="text" formControlName="username" placeholder="Username">
+  <br><br>
   <input type="password" formControlName="password" placeholder="Password">
+  <br><br>
   <input type="submit" value="Submit">
 </form>
 
