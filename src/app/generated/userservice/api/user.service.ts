@@ -137,4 +137,56 @@ export class UserService {
         );
     }
 
+    /**
+     * Validate user
+     * Validate user
+     * @param userName User name
+     * @param password User password
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public validateUser(userName: string, password: string, observe?: 'body', reportProgress?: boolean): Observable<UserModel>;
+    public validateUser(userName: string, password: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UserModel>>;
+    public validateUser(userName: string, password: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UserModel>>;
+    public validateUser(userName: string, password: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        if (userName === null || userName === undefined) {
+            throw new Error('Required parameter userName was null or undefined when calling validateUser.');
+        }
+
+        if (password === null || password === undefined) {
+            throw new Error('Required parameter password was null or undefined when calling validateUser.');
+        }
+
+        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        if (password !== undefined && password !== null) {
+            queryParameters = queryParameters.set('password', <any>password);
+        }
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            'application/json'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<UserModel>(`${this.basePath}/userService/users/${encodeURIComponent(String(userName))}`,
+            {
+                params: queryParameters,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
 }

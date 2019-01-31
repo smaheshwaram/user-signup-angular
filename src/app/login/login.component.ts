@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit, AfterContentChecked {
     this.userRequest = new UserServiceValues();
     this.userRequest.userName = this.loginForm.get('username').value;
     this.userRequest.password = this.loginForm.get('password').value;
-    this.userRequest.userAddress = '567 fruity';
     this.dataService.postUser(this.userRequest).subscribe(newUserModel => {
       this.userModel = newUserModel;
       alert('Login in is successful ' + this.userRequest.userName);
