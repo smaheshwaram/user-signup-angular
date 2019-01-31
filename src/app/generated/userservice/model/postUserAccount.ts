@@ -27,4 +27,8 @@ export interface PostUserAccount {
      * User address
      */
     userAddress?: string;
+    /**
+     * Email address
+     */
+    email?: string;
 }

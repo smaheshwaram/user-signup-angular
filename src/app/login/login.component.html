@@ -1,4 +1,9 @@
-<form role="form" [formGroup]="loginForm" (ngSubmit)="signUpUser()">
+<div style="text-align:center">
+  <h1>
+    {{ title }}
+  </h1>
+</div>
+<form role="form" [formGroup]="loginForm" (ngSubmit)="loginUser()">
   <input type="text" formControlName="username" placeholder="Username">
   <br><br>
   <input type="password" formControlName="password" placeholder="Password">

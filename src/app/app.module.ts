@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import {RouterModule} from '@angular/router';
 import {UserService} from './generated/userservice';
 import {ReactiveFormsModule} from '@angular/forms';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     DetailsComponent,
     LoginComponent,
     AdminComponent,
-    HomeComponent
+    HomeComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,11 @@ import {ReactiveFormsModule} from '@angular/forms';
     HttpClientModule,
     RouterModule.forRoot([
       {
-        path: 'signup',
+        path: 'signUp',
+        component: SignupComponent
+      },
+      {
+        path: 'login',
         component: LoginComponent
       },
       {

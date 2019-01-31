@@ -31,4 +31,8 @@ export interface UserModel {
      * User password
      */
     password?: string;
+    /**
+     * Email address
+     */
+    email?: string;
 }
