@@ -3,6 +3,8 @@
     {{ title }}
   </h1>
 </div>
+<section class="card">
+  <div class="card-body">
 <form role="form" [formGroup]="loginForm" (ngSubmit)="loginUser()">
   <input type="text" formControlName="username" placeholder="Username">
   <br><br>
@@ -10,4 +12,6 @@
   <br><br>
   <input type="submit" value="Login">
 </form>
+  </div>
+</section>
 

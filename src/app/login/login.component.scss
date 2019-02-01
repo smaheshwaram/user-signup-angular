@@ -1,0 +1,44 @@
+
+
+  .card {
+    border: 1px solid #000;
+    cursor: pointer;
+    background: #e8e8e8;
+    -webkit-transition: background .3s;
+    transition: background .3s;
+    width: 250px;
+    top: 30%;
+    left: 35%;
+    position: fixed;
+
+    &:hover {background: #fcfcfc;}
+    .card-body {
+      padding: 1.25rem .75rem;
+
+      i {
+        font-size: 3rem;
+        display: block;
+      }
+      h5 {
+        display: block;
+        line-height: 1.25rem;
+        height: 2.5rem;
+        overflow: hidden;
+
+        span {
+          display: inline-block;
+          // white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 38ch;
+        }
+      }
+      p {
+        font-size: .9rem;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+
+
