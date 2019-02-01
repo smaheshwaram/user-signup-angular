@@ -6,10 +6,10 @@
     background: #e8e8e8;
     -webkit-transition: background .3s;
     transition: background .3s;
-    width: 250px;
-    top: 30%;
-    left: 35%;
-    position: fixed;
+    width: fit-content;
+    //top: 30%;
+    //left: 35%;
+    //position: fixed;
 
     &:hover {background: #fcfcfc;}
     .card-body {
